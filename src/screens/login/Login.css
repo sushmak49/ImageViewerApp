@@ -7,3 +7,31 @@
     color: #fff;
     font-size: 18px;
 }
+
+.login-card-container {
+    width: 400px;
+    padding: 32px 64px 32px 64px;
+    margin: auto;
+    text-align: left;
+}
+
+.card-content{
+    padding: 50px;
+}
+
+.login-btn{
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.dispNone{
+    display: none;
+}
+
+.dispBlock{
+    display: block;
+}
+
+.red{
+    color: red;
+}
