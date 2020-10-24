@@ -31,18 +31,22 @@ class Login extends Component {
 
     loginClickHandler = () => {
 
-        this.state.username === "" ? this.setState({ usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
-        this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
+        let username =  this.state.username;
+        let password = this.state.password;
+        let access_token = 'IGQVJYNmxrT2MwQmwzaHNheWNJZADAyaFZAhVmczWDFuMGZAKLTlUVjdFNHNTa1RJeFlRM3I1bVZApajd2X2ZAHTm55eDJ0RGRVS1h4ZAVBBdDJyam5ZAUm4yUWRpOHNncnpNaEo5ekw4WnBQRzBpZAWNGTEFLcm1LNlA1dTVKZAUxr';
 
-        if (this.state.username!=="" && this.state.passwordRequired!=="") {
-            if(this.state.username=="user" && this.state.password=="passwd") {
+        username === "" ? this.setState({ usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
+        password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
+
+        if (username!=="" && password!=="") {
+            if(username==="user" && password==="passwd") {
                 console.log('you can login');
+                sessionStorage.setItem('access-token',access_token);
                 this.setState({incorrectInput:"dispNone"});
             }else {
                 this.setState({incorrectInput:"dispBlock"});
             }
-        }
-        
+        }     
     }
 
     render() {
@@ -58,17 +62,17 @@ class Login extends Component {
                         <CardContent className="card-content">
                             <Typography variant="headline" component="h2">
                                 LOGIN
-                        </Typography>
+                            </Typography>
                             <br /><br />
                             <FormControl required>
-                                <InputLabel htmlFor="username">Username:</InputLabel>
-                                <Input id="username" username={this.state.username} type="text" onChange={this.inputUsernameChangeHandler}></Input>
+                                <InputLabel htmlFor="username">Username</InputLabel>
+                                <Input id="username" className="form-input" username={this.state.username} type="text" onChange={this.inputUsernameChangeHandler}></Input>
                                 <FormHelperText className={this.state.usernameRequired}><span className="red">required</span></FormHelperText>
                             </FormControl>
                             <br /><br />
                             <FormControl required>
-                                <InputLabel htmlFor="password">Password:</InputLabel>
-                                <Input id="password" password={this.state.password} type="password" onChange={this.inputPasswordChangeHandler}></Input>
+                                <InputLabel htmlFor="password">Password</InputLabel>
+                                <Input id="password" className="form-input" password={this.state.password} type="password" onChange={this.inputPasswordChangeHandler}></Input>
                                 <FormHelperText className={this.state.passwordRequired}><span className="red">required</span></FormHelperText>
                             </FormControl>
                             <br /><br />
