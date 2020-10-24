@@ -16,7 +16,11 @@
 }
 
 .card-content{
-    padding: 50px;
+    padding: 100px;
+}
+
+.form-input{
+    width: 300px;
 }
 
 .login-btn{
