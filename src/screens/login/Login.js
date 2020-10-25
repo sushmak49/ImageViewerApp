@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Header from '../../common/header/Header.js';
 
 class Login extends Component {
 
@@ -52,11 +53,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="header-component">
-                    <Typography className="header-logo">
-                        Image Viewer
-                </Typography>
-                </div>
+                <Header />
                 <div className="login-card-container">
                     <Card>
                         <CardContent className="card-content">
