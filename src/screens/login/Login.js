@@ -8,6 +8,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Header from '../../common/header/Header.js';
+import ReactDOM from 'react-dom';
+import Home from '../home/Home.js';
 
 class Login extends Component {
 
@@ -24,7 +26,7 @@ class Login extends Component {
                 username : 'user',
                 password : 'passwd',
             },
-            loggedIn : sessionStorage.getItem('access-token')==null?"false":"true",
+            loggedIn : sessionStorage.getItem('access-token')==null?false:true,
         }
     }
 
@@ -51,10 +53,15 @@ class Login extends Component {
                 this.setState({loggedIn : true});
                 this.setState({incorrectInput:"dispNone"});
                 //Take user to HomePage
+                this.redirectToHomePage();
             }else {
                 this.setState({incorrectInput:"dispBlock"});
             }
         }     
+    }
+
+    redirectToHomePage = () => {
+        this.props.history.push("/home");
     }
 
     render() {
@@ -64,7 +71,7 @@ class Login extends Component {
                 <div>
                     <Card className="login-card-container">
                         <CardContent className="card-content">
-                            <Typography variant="headline" component="h2">
+                            <Typography variant="h4" component="h2">
                                 LOGIN
                             </Typography>
                             <br /><br />
