@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from './screens/login/Login.js';
+import Controller from './screens/Controller.js';
 import 'typeface-roboto';
 
 ReactDOM.render(
-    <Login />, 
+    <Controller />, 
     document.getElementById('root')
 );
