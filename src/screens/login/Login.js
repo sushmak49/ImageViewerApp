@@ -21,7 +21,7 @@ class Login extends Component {
             usernameRequired: 'dispNone',
             passwordRequired: 'dispNone',
             incorrectInput: 'dispNone',
-            accessToken : 'f5af9f51-07e6-4332-8f1a-c0c11c1e3728',
+            accessToken : 'IGQVJVenRwbzBaWHRrb1l3RGJTQW1FOTZAiZAllzb1RBTzR4SW5KWUJUa21FZA3NLOHd3UFZANY0ZAORW80M1VXSndMMGZAweVRnWlgxR3AzaU5RSG1UNXhJeVpzZATUyNHVCOUZAQYmg1dko2NlBtd3dXSWc3MG5LaGhfLVVaUnEw',
             userInput: {
                 username : 'user',
                 password : 'passwd',
