@@ -1,9 +1,26 @@
 .header-component {
     background-color: #263238;
     padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-logo {
     color: #fff;
     font-size: 18px;
 }
+
+.search-box {
+    border-radius: 4px;
+    width: 300px;
+    background-color: #c0c0c0;
+}
+
+.header-right{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

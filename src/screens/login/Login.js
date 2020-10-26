@@ -8,6 +8,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Header from '../../common/header/Header.js';
+import ReactDOM from 'react-dom';
+import Home from '../home/Home.js';
 
 class Login extends Component {
 
@@ -19,12 +21,12 @@ class Login extends Component {
             usernameRequired: 'dispNone',
             passwordRequired: 'dispNone',
             incorrectInput: 'dispNone',
-            accessToken : 'f5af9f51-07e6-4332-8f1a-c0c11c1e3728',
+            accessToken : 'IGQVJVenRwbzBaWHRrb1l3RGJTQW1FOTZAiZAllzb1RBTzR4SW5KWUJUa21FZA3NLOHd3UFZANY0ZAORW80M1VXSndMMGZAweVRnWlgxR3AzaU5RSG1UNXhJeVpzZATUyNHVCOUZAQYmg1dko2NlBtd3dXSWc3MG5LaGhfLVVaUnEw',
             userInput: {
                 username : 'user',
                 password : 'passwd',
             },
-            loggedIn : sessionStorage.getItem('access-token')==null?"false":"true",
+            loggedIn : sessionStorage.getItem('access-token')==null?false:true,
         }
     }
 
@@ -51,10 +53,15 @@ class Login extends Component {
                 this.setState({loggedIn : true});
                 this.setState({incorrectInput:"dispNone"});
                 //Take user to HomePage
+                this.redirectToHomePage();
             }else {
                 this.setState({incorrectInput:"dispBlock"});
             }
         }     
+    }
+
+    redirectToHomePage = () => {
+        this.props.history.push("/home");
     }
 
     render() {
@@ -64,7 +71,7 @@ class Login extends Component {
                 <div>
                     <Card className="login-card-container">
                         <CardContent className="card-content">
-                            <Typography variant="headline" component="h2">
+                            <Typography variant="h4" component="h2">
                                 LOGIN
                             </Typography>
                             <br /><br />
