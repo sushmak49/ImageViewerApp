@@ -5,9 +5,9 @@ import Home from '../screens/home/Home.js';
 import PrivateRoutes from '../common/PrivateRoutes.js';
 
 class Controller extends Component{
-    constructor(){
-        super();
-        this.baseUrl = "localhost:3000"
+    constructor(props){
+        super(props);
+        this.baseUrl = "localhost:3000/";
         this.state={
             loggedIn: sessionStorage.getItem('access-token')==null?false:true
         }
