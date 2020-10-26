@@ -17,7 +17,7 @@ export default class Profile extends Component {
         this.state = {
             userPosts: [],
             open: false,
-            userPost: {}
+            userPost: {},
         }
     }
 
@@ -27,11 +27,11 @@ export default class Profile extends Component {
             let accessToken = window.sessionStorage.getItem("access-token");
             let getPostsURI = Config.api.endpoints.find((endpoint) => endpoint.name === "Get Posts").uri.replace('$accessToken', accessToken);
             let getPostDetailsURI = Config.api.endpoints.find((endpoint) => endpoint.name === "Get Post Details").uri.replace('$accessToken', accessToken);
-    
+
             let response = await fetch(getPostsURI);
             let posts = await response.json();
             posts = posts.data;
-    
+
             for (let i = 0; i < posts.length; i++) {
                 response = await fetch(getPostDetailsURI.replace('$postId', posts[i].id));
                 let details = await response.json();
@@ -43,9 +43,9 @@ export default class Profile extends Component {
                 posts[i].isLiked = false;
                 posts[i].numLikes = Math.round(100 + Math.random() * 100);
             }
-            this.setState({userPosts: posts});
+            this.setState({ userPosts: posts });
         }
-        
+
     }
 
     // Handler to open post modal
@@ -61,7 +61,7 @@ export default class Profile extends Component {
     render() {
         return (
             <div>
-            <Header/>
+                <Header />
                 {
                     (this.state.userPosts.length > 0) ?
                         (<Box><ProfileDetail className="profile-detail" userName={this.state.userPosts[0].username} numPosts={this.state.userPosts.length}
@@ -97,7 +97,7 @@ export default class Profile extends Component {
                                 </Fade>
                             </Modal>
                         </Box>) : ""}
-                        </div>
+            </div>
         );
     }
 }

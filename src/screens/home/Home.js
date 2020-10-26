@@ -36,12 +36,12 @@ class Home extends Component {
             let accessToken = window.sessionStorage.getItem("access-token");
             let getPostsURI = Config.api.endpoints.find((endpoint) => endpoint.name === "Get Posts").uri.replace('$accessToken', accessToken);
             let getPostDetailsURI = Config.api.endpoints.find((endpoint) => endpoint.name === "Get Post Details").uri.replace('$accessToken', accessToken);
-    
+
             let response = await fetch(getPostsURI);
             let posts = await response.json();
             posts = posts.data;
             console.log(posts);
-    
+
             for (let i = 0; i < posts.length; i++) {
                 response = await fetch(getPostDetailsURI.replace('$postId', posts[i].id));
                 let details = await response.json();
@@ -53,45 +53,45 @@ class Home extends Component {
                 posts[i].isLiked = false;
                 posts[i].numLikes = Math.round(100 + Math.random() * 100);
             }
-            this.setState({userPosts: posts});
-            this.setState({posts: posts.filter(x => true)});
+            this.setState({ userPosts: posts });
+            this.setState({ posts: posts.filter(x => true) });
         }
-        
+
     }
 
     render() {
         return (
             <div>
-                <Header/>
+                <Header />
                 {
                     (this.state.userPosts.length > 0) ?
-                    (
-                        <Box display="flex" width="70%" m="auto" flexDirection="row" flexWrap="wrap" alignItems="space-around" flexBasis="1">
-                            {
-                                this.state.userPosts.map(userPost => (
-                                    <Card key={userPost.id + "post"} raised className="post">
-                                        <CardHeader className="post-header" disableTypography
-                                            avatar={<ProfileIcon type="avatarOnly" />}
-                                            title={<Typography className="text-bold" variant="body1">{userPost.username}</Typography>}
-                                            subheader={<Typography className="text-lite" variant="subtitle2">{this.convertDate(userPost.timestamp)}</Typography>}>
-                                        </CardHeader>
-                                        <CardContent className="post-content">
-                                            <PostMedia media={userPost.media_url} mediaId={userPost.id} />
-                                            <PostCaption text={userPost.caption} />
-                                        </CardContent>
-                                        <CardActions className="post-footer">
-                                            <Box width="100%" display="flex" flexDirection="column" alignItems="left">
-                                                <PostLikes likes={userPost.numLikes} />
-                                                <PostComments baseId={userPost.id} postUser={userPost.username} />
-                                            </Box>
-                                        </CardActions>
-                                    </Card>
-                                ))
-                            }
-                        </Box>) : ""
+                        (
+                            <Box display="flex" width="70%" m="auto" flexDirection="row" flexWrap="wrap" alignItems="space-around" flexBasis="1">
+                                {
+                                    this.state.userPosts.map(userPost => (
+                                        <Card key={userPost.id + "post"} raised className="post">
+                                            <CardHeader className="post-header" disableTypography
+                                                avatar={<ProfileIcon type="avatarOnly" />}
+                                                title={<Typography className="text-bold" variant="body1">{userPost.username}</Typography>}
+                                                subheader={<Typography className="text-lite" variant="subtitle2">{this.convertDate(userPost.timestamp)}</Typography>}>
+                                            </CardHeader>
+                                            <CardContent className="post-content">
+                                                <PostMedia media={userPost.media_url} mediaId={userPost.id} />
+                                                <PostCaption text={userPost.caption} />
+                                            </CardContent>
+                                            <CardActions className="post-footer">
+                                                <Box width="100%" display="flex" flexDirection="column" alignItems="left">
+                                                    <PostLikes likes={userPost.numLikes} />
+                                                    <PostComments baseId={userPost.id} postUser={userPost.username} />
+                                                </Box>
+                                            </CardActions>
+                                        </Card>
+                                    ))
+                                }
+                            </Box>) : ""
                 }
-                
-                </div>
+
+            </div>
         )
     }
 }

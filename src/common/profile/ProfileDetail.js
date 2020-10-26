@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button, Modal, Backdrop, Fade,FormControl, InputLabel, Input, FormHelperText } from '@material-ui/core';
+import { Box, Typography, Button, Modal, Backdrop, Fade, FormControl, InputLabel, Input, FormHelperText } from '@material-ui/core';
 import EditIcon from "@material-ui/icons/Edit";
 import { makeStyles } from '@material-ui/core/styles';
 import ProfileIcon from './ProfileIcon';
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     }
 });
 
-// User Profile Details/Statistics Component
+// User Profile Details Component
 export default function ProfileDetails(props) {
     const [fullName, setFullName] = React.useState(props.fullName);
     const [input, setInput] = React.useState(null);
@@ -57,16 +57,16 @@ export default function ProfileDetails(props) {
         setError('hide');
         setInput(e.target.value);
     };
-    const updateFullName = () => { 
-        
-        if(!input){
+    const updateFullName = () => {
+
+        if (!input) {
             setError("show");
         }
-        else{
+        else {
             setFullName(input);
             handleClose();
         }
-     };
+    };
 
     return (
         <Box width="50%" display="flex" flexDirection="row" alignItems="center" justifyContent="space-evenly" className={classes.profileDetails + " " + props.className}>
