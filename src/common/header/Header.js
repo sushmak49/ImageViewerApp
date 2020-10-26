@@ -22,28 +22,39 @@ class Header extends Component {
                     </div>
 
                     {
-                        this.state.loggedIn === true ?
-                            (
-                                <div className="header-right">
-                                    <div className="search-box">
-                                        <Search />
-                                        <InputBase
-                                            className="search-input"
-                                            placeholder="Search..."
-                                        />
-                                    </div>
-                                     <div>
-                                         <IconButton>
-                                             <img src={ProfileImage} alt="S" style={{ width: 40, height: 40, borderRadius: 50 }} />
-                                         </IconButton>
-                                     </div>
-                                </div>
-                    
-                     )
-                     :""
-                }
+                        this.state.loggedIn === true && window.location.pathname === '/home' ?
 
-            </div>
+                            <div className="header-right">
+                                <div className="search-box">
+                                    <Search />
+                                    <InputBase
+                                        className="search-input"
+                                        placeholder="Search..."
+                                    />
+                                </div>
+                                <div>
+                                    <IconButton>
+                                        <img src={ProfileImage} alt="S" style={{ width: 40, height: 40, borderRadius: 50 }} />
+                                    </IconButton>
+                                </div>
+                            </div>
+
+                            : ""
+                    }
+                    {
+                        this.state.loggedIn === true && window.location.pathname === '/profile' ?
+
+                            <div className="header-right">
+                                <div>
+                                    <IconButton>
+                                        <img src={ProfileImage} alt="S" style={{ width: 40, height: 40, borderRadius: 50 }} />
+                                    </IconButton>
+                                </div>
+                            </div>
+                            : ""
+                    }
+
+                </div>
             </div>
         )
     }

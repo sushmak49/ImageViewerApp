@@ -19,47 +19,47 @@ class Login extends Component {
             usernameRequired: 'dispNone',
             passwordRequired: 'dispNone',
             incorrectInput: 'dispNone',
-            accessToken : 'IGQVJVenRwbzBaWHRrb1l3RGJTQW1FOTZAiZAllzb1RBTzR4SW5KWUJUa21FZA3NLOHd3UFZANY0ZAORW80M1VXSndMMGZAweVRnWlgxR3AzaU5RSG1UNXhJeVpzZATUyNHVCOUZAQYmg1dko2NlBtd3dXSWc3MG5LaGhfLVVaUnEw',
+            accessToken: 'IGQVJWNDVqRWphQU9QbElnRFc2VkZAhRHZANTTVUUy02WGdaMDlvRHJSOFZAEZAl92TzVaMnY0TG9sSHFleFJSZAk8tRmlxRFBDNVM1NUdwd00yeVNfdy1IbXJvSk9UaUZAEbW9DaFdxTXV6QmFFYkhpZAFlHSnNmNU0zeTFVdHlZA',
             userInput: {
-                username : 'user',
-                password : 'passwd',
+                username: 'user',
+                password: 'passwd',
             },
-            loggedIn : sessionStorage.getItem('access-token')==null?false:true,
+            loggedIn: sessionStorage.getItem('access-token') == null ? false : true,
         }
     }
 
     inputUsernameChangeHandler = (event) => {
-        this.setState({username:event.target.value});
+        this.setState({ username: event.target.value });
     }
 
     inputPasswordChangeHandler = (event) => {
-        this.setState({password:event.target.value});
+        this.setState({ password: event.target.value });
     }
 
     loginClickHandler = () => {
 
-        let username =  this.state.username;
+        let username = this.state.username;
         let password = this.state.password;
         let accessToken = this.state.accessToken;
 
-        username === "" ? this.setState({ usernameRequired: "dispBlock",incorrectInput: "dispNone"}) : this.setState({ usernameRequired: "dispNone" });
-        password === "" ? this.setState({ passwordRequired: "dispBlock",incorrectInput: "dispNone"}) : this.setState({ passwordRequired: "dispNone" });
+        username === "" ? this.setState({ usernameRequired: "dispBlock", incorrectInput: "dispNone" }) : this.setState({ usernameRequired: "dispNone" });
+        password === "" ? this.setState({ passwordRequired: "dispBlock", incorrectInput: "dispNone" }) : this.setState({ passwordRequired: "dispNone" });
 
-        if (username!=="" && password!=="") {
-            if(username === this.state.userInput.username && password === this.state.userInput.password) {
-                sessionStorage.setItem('access-token',accessToken);
-                this.setState({loggedIn : true});
-                this.setState({incorrectInput:"dispNone"});
+        if (username !== "" && password !== "") {
+            if (username === this.state.userInput.username && password === this.state.userInput.password) {
+                sessionStorage.setItem('access-token', accessToken);
+                this.setState({ loggedIn: true });
+                this.setState({ incorrectInput: "dispNone" });
                 //Take user to HomePage
                 this.redirectToHomePage();
-            }else {
-                this.setState({incorrectInput:"dispBlock"});
+            } else {
+                this.setState({ incorrectInput: "dispBlock" });
             }
-        }     
+        }
     }
 
     redirectToHomePage = () => {
-        this.props.history.push("/home");
+        window.location.href = "http://localhost:3000/" + "home";
     }
 
     render() {
@@ -86,7 +86,7 @@ class Login extends Component {
                             </FormControl>
                             <br /><br />
                             <FormHelperText className={this.state.incorrectInput}><span className="red">Incorrect username and/or password</span></FormHelperText>
-                            <br/>
+                            <br />
                             <Button
                                 className="login-btn"
                                 variant="contained"

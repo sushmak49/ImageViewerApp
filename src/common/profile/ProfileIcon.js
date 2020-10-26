@@ -49,8 +49,8 @@ export default function ProfileIcon(props) {
                     );
                 } else {
                     return (
-                        
-                            <Avatar alt="AS" src={ProfileImage} />
+
+                        <Avatar alt="AS" src={ProfileImage} />
                     );
                 }
             })()
