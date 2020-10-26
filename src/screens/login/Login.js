@@ -8,8 +8,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Header from '../../common/header/Header.js';
-import ReactDOM from 'react-dom';
-import Home from '../home/Home.js';
 
 class Login extends Component {
 
