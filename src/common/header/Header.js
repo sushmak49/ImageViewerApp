@@ -3,6 +3,7 @@ import './Header.css';
 import Search from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { IconButton } from '@material-ui/core';
+import ProfileImage from '../../assets/profile-pic.jpg';
 
 class Header extends Component {
 
@@ -33,8 +34,7 @@ class Header extends Component {
                                     </div>
                                      <div>
                                          <IconButton>
-                                             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="Su" style={{ width: 40, height: 40, borderRadius: 50 }} />
-
+                                             <img src={ProfileImage} alt="S" style={{ width: 40, height: 40, borderRadius: 50 }} />
                                          </IconButton>
                                      </div>
                                 </div>
